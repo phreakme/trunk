@@ -1,0 +1,6 @@
+Channel: sip/sip.provider.com/1<yournum>
+Application: AGI
+Data: phreakme-outbound.agi
+CallerID: <11111111111> 
+MaxRetries: 5
+RetryTime: 30

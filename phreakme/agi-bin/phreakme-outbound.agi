@@ -1,0 +1,22 @@
+#!/usr/bin/php
+<?php
+set_time_limit(30);
+require('phpagi.php');
+$agi = new AGI();
+
+// play recording
+$recordings_dir = "/opt/phreakme/recordings/";
+ $selected_rec = file_get_contents("/opt/phreakme/recording_selection_name.txt");
+ $agi->exec("Playback", $recordings_dir . basename($selected_rec, ".wav"));
+// record response
+
+// change to beep? Maybe based on conf
+$response = $agi->get_data("silence/1", 4000, 10);
+
+file_put_contents("/opt/phreakme/responses.txt", date("Y-m-d H:i:s") . "," . $response['result'] . "," . $response['data'] . ',' . __FILE__ . "\n", FILE_APPEND);
+
+// multi-step here
+//$agi->text2wav("Goodbye");
+
+$agi->hangup();
+?>

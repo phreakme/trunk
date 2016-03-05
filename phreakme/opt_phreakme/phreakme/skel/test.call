@@ -1,0 +1,6 @@
+Channel: Local/47@context
+Application: AGI
+Data: phreakme-outbound.agi
+CallerID: asterisk
+MaxRetries: 5
+RetryTime: 30
